@@ -24,3 +24,5 @@ class Profile(models.Model):
      # delete profile from database
     def delete_profile(self):
         self.delete()
+        
+        

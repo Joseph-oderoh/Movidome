@@ -1,0 +1,36 @@
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'landing' %}">The Moviedome</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        {% if user.is_authenticated %}
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'landing'%}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/accounts/password/change">Change Password</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a  class="nav-link"href="/user/{{request.user.id}}">Profile</a>
+        </li>
+        </ul>
+        {% else %}
+        <li>
+            <a class='btn btn-default' href="/accounts/login">Login</a>
+          </li>
+      
+          {% endif %}
+      </div>
+    </div>
+  </nav>
+
+
