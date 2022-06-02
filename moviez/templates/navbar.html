@@ -1,6 +1,4 @@
 
-
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'landing' %}">The Moviedome</a>
@@ -19,16 +17,20 @@
           <li class="nav-item">
             <a class="nav-link" href="/logout">Logout</a>
           </li>
+          {% for profile in profiles%}
           <li class="nav-item">
-            <a  class="nav-link"href="/user/{{request.user.id}}">Profile</a>
+            <a class="nav-link" href="{% url 'profile' profileId=profile.id %}"> profile</a>
         </li>
+        {% endfor %}
         </ul>
         {% else %}
-        <li>
-            <a class='btn btn-default' href="/accounts/login">Login</a>
+        <ul>
+        <li class="nav-item">
+            <a class="nav-link" class='btn btn-default' href="/accounts/login/"> Login</a>
           </li>
-      
+        </ul>
           {% endif %}
+          
       </div>
     </div>
   </nav>

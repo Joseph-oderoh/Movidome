@@ -36,7 +36,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 INSTALLED_APPS = [
     'bootstrap4',
-    'movie.apps.MovieConfig',
+    'moviez.apps.MoviezConfig',
     'registration',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -155,3 +155,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TMDB_API_KEY = os.environ.get('API_KEY')

@@ -19,7 +19,7 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('movie.urls')),
+    path('',include('moviez.urls')),
     path('logout/', views.LogoutView.as_view (next_page = '/')),
     path('accounts/', include('registration.backends.simple.urls')),
 ]
