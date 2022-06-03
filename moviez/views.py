@@ -48,25 +48,42 @@ def add_profile(request):
 
 @login_required(login_url='Login')
 def Recommendations(request):
-    now_playing_movies_request = requests.get("https://api.themoviedb.org/3/movie/now_playing?api_key=" + TMDB_API_KEY)
+    now_playing_movies_request = requests.get("https://api.themoviedb.org/3/movie/now_playing?api_key=aabb0c7ca8b510be8e9e03a4e8ffd9aa")
     now_playing_movies_results = now_playing_movies_request.json()
     now_playing_movies = now_playing_movies_results['results']
 
-    top_rated_shows_request = requests.get("https://api.themoviedb.org/3/tv/top_rated?api_key=" + TMDB_API_KEY)
+    top_rated_shows_request = requests.get("https://api.themoviedb.org/3/tv/top_rated?api_key=aabb0c7ca8b510be8e9e03a4e8ffd9aa")
     top_rated_shows_results = top_rated_shows_request.json()
     top_rated_shows = top_rated_shows_results['results']
 
-    top_rated_request = requests.get("https://api.themoviedb.org/3/movie/top_rated?api_key=" + TMDB_API_KEY)
+    top_rated_request = requests.get("https://api.themoviedb.org/3/movie/top_rated?api_key=aabb0c7ca8b510be8e9e03a4e8ffd9aa")
     top_rated_results = top_rated_request.json()
     top_rated = top_rated_results['results']
 
-    popular_tv_request = requests.get("https://api.themoviedb.org/3/tv/popular?api_key=" + TMDB_API_KEY)
+    popular_tv_request = requests.get("https://api.themoviedb.org/3/tv/popular?api_key=aabb0c7ca8b510be8e9e03a4e8ffd9aa" )
     popular_tv_results = popular_tv_request.json()
     popular_tv = popular_tv_results['results']
 
-    upcoming_request = requests.get("https://api.themoviedb.org/3/movie/upcoming?api_key=" + TMDB_API_KEY)
+    upcoming_request = requests.get("https://api.themoviedb.org/3/movie/upcoming?api_key=aabb0c7ca8b510be8e9e03a4e8ffd9aa" )
     upcoming_results = upcoming_request.json()
     upcoming = upcoming_results['results']
 
     return render(request, 'Recommendations.html', {'now_playing_movies':now_playing_movies, 'top_rated_shows':top_rated_shows, 'top_rated':top_rated, 'upcoming':upcoming, 'popular_tv':popular_tv})
 
+
+
+@login_required(login_url='Login')
+def MovieDetails(request, movie_id):
+    movie_details_request = requests.get("https://api.themoviedb.org/3/movie/" + str(movie_id) + "?api_key=" + TMDB_API_KEY)
+    movie_details_results = movie_details_request.json()
+    movie_details = movie_details_results
+
+    movie_video_request = requests.get("https://api.themoviedb.org/3/movie/" + str(movie_id) + "/videos?api_key=" + TMDB_API_KEY)
+    movie_video_results = movie_video_request.json()
+    movie_videos = movie_video_results['results']
+    newDict = dict()
+    for movie in movie_videos:
+        if movie['type'] == 'Trailer':
+            newDict['key'] = movie['key']
+
+    return render(request, 'Movie Details.html', {'movie_details':movie_details, 'movie_id':movie_id, 'newDict':newDict})

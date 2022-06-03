@@ -1,4 +1,4 @@
-{% extends "Base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
@@ -12,7 +12,7 @@
         <div class="row">
             {% for now_playing in now_playing_movies|slice:":4" %}
             <div class="col-sm-3 mb-3 d-flex align-items-stretch">
-                <a href="{% url 'MovieDetails' now_playing.id %}">
+              
                     <img src="https://image.tmdb.org/t/p/w500/{{ now_playing.poster_path }}" class="fluid img-thumbnail">
                 </a>
             </div>
@@ -24,7 +24,7 @@
         <div class="row">
             {% for tv_show in top_rated_shows|slice:":4" %}
             <div class="col-sm-3 mb-3 d-flex align-items-stretch">
-                <a href="{% url 'TVDetails' tv_show.id %}">
+               
                     <img src="https://image.tmdb.org/t/p/w500/{{ tv_show.poster_path }}" class="fluid img-thumbnail">
                 </a>
             </div>
@@ -36,7 +36,7 @@
         <div class="row">
             {% for top in top_rated|slice:":4" %}
             <div class="col-sm-3 mb-3 d-flex align-items-stretch">
-                <a href="{% url 'MovieDetails' top.id %}">
+              
                     <img src="https://image.tmdb.org/t/p/w500/{{ top.poster_path }}" class="fluid img-thumbnail">
                 </a>
             </div>
@@ -48,7 +48,7 @@
         <div class="row">
             {% for popular in popular_tv|slice:":4" %}
             <div class="col-sm-3 mb-3 d-flex align-items-stretch">
-                <a href="{% url 'TVDetails' popular.id %}">
+              
                     <img src="https://image.tmdb.org/t/p/w500/{{ popular.poster_path }}" class="fluid img-thumbnail">
                 </a>
             </div>
@@ -60,7 +60,7 @@
         <div class="row">
             {% for upcoming in upcoming|slice:":4" %}
             <div class="col-sm-3 mb-3 d-flex align-items-stretch">
-                <a href="{% url 'MovieDetails' upcoming.id %}">
+                
                     <img src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}" class="fluid img-thumbnail">
                 </a>
             </div>
@@ -158,7 +158,6 @@
 
       <!-- Copyright -->
       <div class="footer-copyright text-center py-3">© 2022 Copyright
-        <a href="https://github.com/steve-njuguna-k/Django-Netflix-Clone" target="_blank"> Django Netflix Clone</a>
       </div>
       <!-- Copyright -->
 

@@ -6,5 +6,5 @@ urlpatterns = [
     path('', views.homepage, name='landing'),
     path('profile/<int:profileId>', views.profile, name='profile'),
     path('new/profile', views.add_profile, name='add_profile'),
-    path('recommendations', views.Recommendations, name='Recommendations'),
+    path('recommendations', views.Recommendations, name='recommendations'),
     ]
