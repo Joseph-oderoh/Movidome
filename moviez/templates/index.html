@@ -16,7 +16,10 @@
           <b><h1 class="landing-title">Unlimited movies, TV shows, and more.</h1></b>
           <p class="hero-p">Watch anywhere. Cancel anytime.</p>
           <p>Ready to watch? Enter your email to create or restart your membership.</p>
-          <a class="nav-link" class='btn btn-default' href="/accounts/register"> Get Started</a
+          {% if user.is_authenticated %}
+          {% else%}
+          <a class="nav-link" class='btn btn-default' href="/accounts/register"> Get Started</a>
+          {% endif%}
            
           </a>
         </div>
@@ -24,18 +27,7 @@
     </center>
   </div>
   <div class="container-fluid section-1">
-      <div class="row">
-          <div class="col-sm-6">
-              <h1 style="font-size: 60px;"><b>Have an Android Phone? Get our new free plan!</b></h1>
-              <p>Watch a selection of new movies and TV shows without adding any payment details!</p>
-              <a class="btn-link" href="#">
-                <h3>Get the app <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg></h3>
-              </a>
-          </div>
-          <div class="col-sm-6">
-              <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ab36101/nmhp/en.jpg" width="500">
-          </div>
-      </div>
+   
   </div>
   <div class="container-fluid section-2">
       <div class="row">
@@ -128,95 +120,11 @@
   <!-- Footer -->
   <footer class="page-footer font-small unique-color-dark">
 
-    <!-- Footer Links -->
-    <div class="container text-center text-md-left mt-5">
-
-      <!-- Grid row -->
-      <div class="row mt-3">
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-
-          <!-- Links -->
-          <p>
-            <a href="#!">FAQ</a>
-          </p>
-          <p>
-            <a href="#!">Investor Relations</a>
-          </p>
-          <p>
-            <a href="#!">Privacy</a>
-          </p>
-          <p>
-            <a href="#!">Speed Test</a>
-          </p>
-
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-          <!-- Links -->
-          <p>
-            <a href="#!">Help Center</a>
-          </p>
-          <p>
-            <a href="#!">Jobs</a>
-          </p>
-          <p>
-            <a href="#!">Cookie Preferences</a>
-          </p>
-          <p>
-            <a href="#!">Legal Notices</a>
-          </p>
-
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-          <!-- Links -->
-          <p>
-            <a href="#!">Account</a>
-          </p>
-          <p>
-            <a href="#!">Ways to Watch</a>
-          </p>
-          <p>
-            <a href="#!">Corporate Information</a>
-          </p>
-          <p>
-            <a href="#!">Only on Netflix</a>
-          </p>
-
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-          <!-- Links -->
-          <p>
-            <a href="#!">Media Center</a>
-          <p>
-            <a href="#!">Terms of Use</a>
-          <p>
-            <a href="#!">Contact Us</a>
-
-        </div>
-        <!-- Grid column -->
-
-      </div>
-      <!-- Grid row -->
-
-    </div>
-    <!-- Footer Links -->
+ 
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2022 Copyright
-      <a href="https://github.com/steve-njuguna-k/Django-Netflix-Clone" target="_blank"> Django Netflix Clone</a>
+      <a href="#" target="_blank"> Django Netflix Clone</a>
     </div>
     <!-- Copyright -->
 
